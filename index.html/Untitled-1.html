@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wizard Spell Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <canvas id="magicCanvas"></canvas>
+  <div id="snitch">
+    <div class="wing left"></div>
+    <div class="ball"></div>
+    <div class="wing right"></div>
+  </div>
+  <div class="container">
+    <h1>🪄 Spell Generator</h1>
+
+    <div id="xpBarContainer">
+      <div id="xpBar"></div>
+    </div>
+    <p id="levelText">Level 1 Wizard</p>
+
+    <div class="stats">
+      <p>Spells Cast: <span id="spellCounter">0</span></p>
+    </div>
+
+    <div class="card">
+      <p id="alignmentText">Alignment: Neutral ⚖️</p>
+      
+      <p id="spellName">Click to reveal a spell...</p>
+      <p id="spellEffect"></p>
+      <p id="category"></p>
+      <p id="rarity"></p>
+
+      <button id="castButton">
+        Cast Spell
+      </button>
+    </div>
+
+    <div class="history-container">
+      <h3>✨ Spell History</h3>
+      <ul id="history"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <!-- Sound Effects -->
+  <audio id="wandSound" src="sounds/wand.mp3"></audio>
+  <audio id="rareSound" src="sounds/rare.mp3"></audio>
+  <audio id="legendarySound" src="sounds/legendary.mp3"></audio>
+
+  <!-- Flash effect for legendary spells -->
+  <div id="flash"></div>
+
+  <!-- Background music -->  <audio id="bgMusic" loop>
+    <source src="..\/harry_potter.mp3" type="audio/mpeg">
+  </audio>
+</body>
+</html>

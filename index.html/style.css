@@ -1,0 +1,220 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  /* background image (project root) with cinematic gradient overlay */
+  background-image: url("../hogwarts.webp"), radial-gradient(circle at top, rgba(26,15,46,0.65), rgba(5,3,10,0.9) 70%);
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed;
+  background-blend-mode: overlay;
+
+  color: #e6e1ff;
+  font-family: 'Merriweather', Georgia, serif;
+  text-align: center;
+  position: relative;
+}
+
+/* Cinematic moving fog background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 40%, rgba(120,0,150,0.2), transparent 60%);
+  animation: fogMove 40s linear infinite;
+  z-index: -2;
+  pointer-events: none;
+}
+
+@keyframes fogMove {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-25%, -25%); }
+}
+
+/* Background particle canvas */
+#magicCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* behind UI */
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.card {
+  background: rgba(15, 12, 30, 0.85);
+  padding: 35px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 0 30px rgba(140, 90, 255, 0.25);
+  backdrop-filter: blur(12px);
+  width: 420px;
+  margin: 40px auto;
+  transition: 0.3s;
+}
+
+h1 {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 48px;
+  letter-spacing: 2px;
+  color: #f5e6ff;
+  margin-bottom: 10px;
+}
+
+h1::after {
+  content: " ✨";
+}
+
+#spellName {
+  font-size: 28px;
+  color: #7cffd4;
+  margin-bottom: 10px;
+}
+
+#alignmentText {
+  font-size: 18px;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  margin-bottom: 15px;
+  font-family: 'Cinzel', Georgia, serif;
+  font-weight: bold;
+}
+
+#spellEffect {
+  color: #c9c4ff;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+#rarity {
+  color: #ffd166;
+  font-weight: bold;
+}
+
+button {
+  background: linear-gradient(135deg, #5b2cff, #a855f7);
+  border: none;
+  padding: 12px 26px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-family: 'Cinzel', Georgia, serif;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(168,85,247,0.6);
+}
+
+button:active { transform: translateY(0); }
+
+.history-container { width: 420px; margin: 30px auto; }
+
+#history {
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+#history li {
+  list-style: none;
+  padding: 8px;
+  margin: 6px 0;
+  background: rgba(255,255,255,0.05);
+  border-radius: 6px;
+}
+
+/* Spell reveal animation */
+.reveal {
+  animation: revealSpell 0.6s ease;
+}
+
+@keyframes revealSpell {
+  0% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 0.5; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Flash effect for legendary spells */
+#flash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.flash-active {
+  animation: flashEffect 400ms ease-out;
+}
+
+@keyframes flashEffect {
+  0% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+
+/* Floating spell text animation */
+.floating-text {
+  position: fixed;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: #e9d5ff;
+  pointer-events: none;
+  animation: floatUp 2s ease-out forwards;
+  text-shadow: 0 0 20px rgba(186, 85, 211, 0.8);
+  z-index: 500;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-120px) scale(1.3);
+  }
+}
+
+/* XP Bar Styling */
+#xpBarContainer {
+  width: 300px;
+  height: 18px;
+  background: #222;
+  border: 1px solid #555;
+  border-radius: 10px;
+  margin: 15px auto;
+  overflow: hidden;
+}
+
+#xpBar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, violet, cyan);
+  transition: width 0.4s ease;
+}
+
+#levelText {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 18px;
+  color: #7cffd4;
+  margin: 5px 0 15px 0;
+}
