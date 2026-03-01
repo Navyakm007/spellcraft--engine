@@ -1,4 +1,4 @@
-# 🪄 Wizard Spell Generator
+# 🪄 SPELL CRAFT ENGINE
 
 A Harry Potter inspired spell generator built using HTML, CSS and JavaScript.
 
